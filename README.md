@@ -1,2 +1,2 @@
-# osgi webframwork
-osgi framwork's example
+# osgi framework
+osgi framework's example
