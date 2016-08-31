@@ -17,15 +17,9 @@ public class TaskDaoImpl implements TaskDao {
 
 	public TaskDaoImpl() {
 		taskMap = new HashMap<String, Task>();
-		Task task = new Task();
-		task.setId("1");
-		task.setTitle("Buy some coffee");
-		task.setDescription("Take the extra strong");
+		Task task = new Task("1", "Buy some coffee");
 		taskMap.put(task.getId(), task);
-		task = new Task();
-		task.setId("2");
-		task.setTitle("Finish karaf tutorial");
-		task.setDescription("Last check and wiki upload");
+		task = new Task("2", "Buy some cookie");
 		taskMap.put(task.getId(), task);
 	}
 

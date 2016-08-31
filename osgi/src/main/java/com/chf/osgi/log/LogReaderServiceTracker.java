@@ -4,15 +4,16 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.log.LogListener;
 import org.osgi.service.log.LogReaderService;
-import org.osgi.util.tracker.ServiceTracker;
 
-public class LogReaderServiceTracker extends ServiceTracker<LogReaderService, LogReaderService> {
+import com.chf.osgi.simplify.SimpleServiceTracker;
+
+public class LogReaderServiceTracker extends SimpleServiceTracker<LogReaderService> {
 
 	private LogListener logListener;
 
 	public LogReaderServiceTracker(BundleContext context) {
-		super(context, LogReaderService.class, null);
-		logListener = new ConsoleLog();
+		super(context, LogReaderService.class);
+		logListener = new ConsoleLogListener();
 	}
 
 	@Override

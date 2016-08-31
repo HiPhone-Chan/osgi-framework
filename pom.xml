@@ -75,5 +75,6 @@
 		<module>ui-web</module>
 		<module>common-service</module>
 		<module>felix</module>
+		<module>equinox</module>
 	</modules>
 </project>

@@ -13,6 +13,7 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 
+import com.chf.osgi.http.HttpServiceTracker;
 import com.chf.osgi.log.LogServiceTracker;
 
 public class HostActivator implements BundleActivator {
@@ -21,19 +22,27 @@ public class HostActivator implements BundleActivator {
 
 	private LogServiceTracker logServiceTracker;
 
+	private HttpServiceTracker httpServiceTracker;
+
 	@Override
 	public void start(BundleContext context) throws Exception {
 		bundleContext = context;
 
 		logServiceTracker = new LogServiceTracker(context);
 		logServiceTracker.open();
-		// startBundles();
+
+//		httpServiceTracker = new HttpServiceTracker(context);
+//		httpServiceTracker.open();
 	}
 
 	@Override
 	public void stop(BundleContext context) throws Exception {
 		if (logServiceTracker != null) {
 			logServiceTracker.close();
+		}
+
+		if (httpServiceTracker != null) {
+			httpServiceTracker.close();
 		}
 	}
 

@@ -1,22 +1,18 @@
 package com.chf.felix;
 
-import static org.apache.felix.framework.util.FelixConstants.SYSTEMBUNDLE_ACTIVATORS_PROP;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.apache.felix.fileinstall.internal.DirectoryWatcher;
-import org.apache.felix.fileinstall.internal.FileInstall;
 import org.apache.felix.framework.FrameworkFactory;
-import org.apache.felix.http.whiteboard.internal.WhiteboardActivator;
-import org.osgi.framework.BundleActivator;
-import org.osgi.framework.Constants;
 
-import com.chf.felix.activator.HttpActivator;
+import com.chf.felix.config.BundleRepositoryConfig;
+import com.chf.felix.config.ExtraPackagesConfig;
+import com.chf.felix.config.FelixConfig;
+import com.chf.felix.config.FileInstallConfig;
+import com.chf.felix.config.GogoConfig;
+import com.chf.felix.config.HttpConfig;
+import com.chf.felix.config.LogConfig;
+import com.chf.felix.config.ScrConfig;
 import com.chf.osgi.OsgiFramework;
-import com.chf.osgi.activator.HostActivator;
 
 public class FelixFramework extends OsgiFramework {
 
@@ -34,38 +30,11 @@ public class FelixFramework extends OsgiFramework {
 	}
 
 	private Map<String, Object> initConfig() {
-		Map<String, Object> config = new HashMap<>();
-		List<BundleActivator> activators = new ArrayList<BundleActivator>();
-
-		// HostActivator
-		activators.add(new HostActivator());
-		// log
-		activators.add(new org.apache.felix.log.Activator());
-		// gogo
-		activators.add(new org.apache.felix.gogo.runtime.activator.Activator());
-		activators.add(new org.apache.felix.gogo.command.Activator());
-		activators.add(new org.apache.felix.gogo.shell.Activator());
-		activators.add(new org.apache.felix.bundlerepository.impl.Activator());
-
-		// file install do not read the jar's initial-bundles directory
-		activators.add(new FileInstall());
-		config.put(DirectoryWatcher.DIR, "/initial-bundles");
-
-		// src
-		activators.add(new org.apache.felix.scr.impl.Activator());
-
-		// http
-		activators.add(new WhiteboardActivator());
-		activators.add(new HttpActivator());
-		config.put("org.apache.felix.http.jettyEnabled", "true");
-		config.put("org.apache.felix.http.whiteboardEnabled", "true");
-
-		// preset bundles
-		config.put(SYSTEMBUNDLE_ACTIVATORS_PROP, activators);
-
-		// extra packages
-		config.put(Constants.FRAMEWORK_SYSTEMPACKAGES_EXTRA, "javax.servlet;javax.servlet.http;version=2.5");
-		return config;
+		FelixConfig config = new FelixConfig();
+		config.addConfig(LogConfig.class).addConfig(BundleRepositoryConfig.class).addConfig(GogoConfig.class)
+				.addConfig(FileInstallConfig.class).addConfig(ScrConfig.class).addConfig(HttpConfig.class)
+				.addConfig(ExtraPackagesConfig.class);
+		return config.startConfig();
 	}
 
 }

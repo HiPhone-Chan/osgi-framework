@@ -21,7 +21,7 @@
 				<configuration>
 					<buildDirectory>${bundle.dir}</buildDirectory>
 					<instructions>
-						<Bundle-Activator>com.chf.common.core.Activator</Bundle-Activator>
+						<Created-By>chf</Created-By>
 					</instructions>
 				</configuration>
 			</plugin>

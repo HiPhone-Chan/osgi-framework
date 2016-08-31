@@ -9,7 +9,7 @@ import org.osgi.framework.FrameworkEvent;
 import org.osgi.framework.launch.Framework;
 import org.osgi.framework.launch.FrameworkFactory;
 
-import com.chf.osgi.util.LogUtil;
+import com.chf.osgi.log.SystemLogger;
 
 public class OsgiFramework {
 
@@ -32,7 +32,7 @@ public class OsgiFramework {
 	public void start() {
 		try {
 			framework.start();
-			LogUtil.info("Framework started");
+			SystemLogger.info("Framework started");
 		} catch (BundleException e) {
 			throw new RuntimeException(e);
 		}

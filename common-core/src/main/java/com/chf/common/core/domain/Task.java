@@ -8,11 +8,16 @@ public class Task {
 
 	private String title;
 
-	private String description;
+	private Date date;
 
-	private Date dueDate;
+	public Task() {
+	}
 
-	private boolean finished;
+	public Task(String id, String title) {
+		this.id = id;
+		this.title = title;
+		this.date = new Date();
+	}
 
 	public String getId() {
 		return id;
@@ -30,34 +35,17 @@ public class Task {
 		this.title = title;
 	}
 
-	public String getDescription() {
-		return description;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Date getDueDate() {
-		return dueDate;
-	}
-
-	public void setDueDate(Date dueDate) {
-		this.dueDate = dueDate;
-	}
-
-	public boolean isFinished() {
-		return finished;
-	}
-
-	public void setFinished(boolean finished) {
-		this.finished = finished;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	@Override
 	public String toString() {
-		return "Task [id=" + id + ", title=" + title + ", description=" + description + ", dueDate=" + dueDate
-				+ ", finished=" + finished + "]";
+		return "Task [id=" + id + ", title=" + title + ", date=" + date + "]";
 	}
 
 }
