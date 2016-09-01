@@ -22,6 +22,8 @@ public class ExtraPackagesConfig extends ConfigChain {
 		packageInfos.add("javax.servlet;javax.servlet.http;version=3.1.0");
 		packageInfos.add("org.osgi.service.log;version=1.3");
 		packageInfos.add("org.osgi.service.http.context;version=1.0");
+		packageInfos.add("javax.inject;version=1");
+		packageInfos.add("org.osgi.service.blueprint;version=1.0.0");
 	}
 
 	@Override

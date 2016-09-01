@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.apache.felix.framework.FrameworkFactory;
 
+import com.chf.felix.config.BlueprintConfig;
 import com.chf.felix.config.BundleRepositoryConfig;
 import com.chf.felix.config.ExtraPackagesConfig;
 import com.chf.felix.config.FelixConfig;
@@ -33,7 +34,7 @@ public class FelixFramework extends OsgiFramework {
 		FelixConfig config = new FelixConfig();
 		config.addConfig(LogConfig.class).addConfig(BundleRepositoryConfig.class).addConfig(GogoConfig.class)
 				.addConfig(FileInstallConfig.class).addConfig(ScrConfig.class).addConfig(HttpConfig.class)
-				.addConfig(ExtraPackagesConfig.class);
+				.addConfig(BlueprintConfig.class).addConfig(ExtraPackagesConfig.class);
 		return config.startConfig();
 	}
 

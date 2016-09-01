@@ -12,6 +12,7 @@ public class FileInstallConfig extends ConfigChain {
 	@Override
 	public void config(Map<String, Object> config, List<BundleActivator> activators) {
 		activators.add(new FileInstall());
+		// default load
 		config.put(DirectoryWatcher.DIR, "/initial-bundles");
 	}
 

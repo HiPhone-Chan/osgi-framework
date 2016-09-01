@@ -16,6 +16,12 @@
 			<version>${project.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.aries.blueprint</groupId>
+			<artifactId>org.apache.aries.blueprint.annotation.api</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -28,7 +34,7 @@
 				<configuration>
 					<buildDirectory>${bundle.dir}</buildDirectory>
 					<instructions>
-						<Bundle-Activator>com.chf.common.service.Activator</Bundle-Activator>
+						<Bundle-Activator>${base.package}.common.service.Activator</Bundle-Activator>
 					</instructions>
 				</configuration>
 			</plugin>

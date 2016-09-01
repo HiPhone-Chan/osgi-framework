@@ -11,29 +11,20 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.chf</groupId>
+			<artifactId>common-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<version>${plugin.bundle.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-					<buildDirectory>${bundle.dir}</buildDirectory>
-					<instructions>
-						<!-- <Embed-Dependency>*;scope=provided;inline=true</Embed-Dependency> -->
-						<Bundle-Activator>com.chf.ui.web.Activator</Bundle-Activator>
-					</instructions>
-				</configuration>
-			</plugin>
-
 		</plugins>
 	</build>
 </project>

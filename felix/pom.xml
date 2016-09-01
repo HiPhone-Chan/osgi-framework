@@ -104,6 +104,42 @@
 			<artifactId>org.apache.felix.log</artifactId>
 			<version>1.0.1</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.21</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.21</version>
+		</dependency>
+
+		<!-- for blueprint -->
+		<dependency>
+			<groupId>org.apache.aries.blueprint</groupId>
+			<artifactId>org.apache.aries.blueprint.annotation.api</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.aries.blueprint</groupId>
+			<artifactId>org.apache.aries.blueprint.core</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.apache.aries.blueprint</groupId> <artifactId>org.apache.aries.blueprint.cm</artifactId> 
+			<version>1.0.8</version> </dependency> -->
+
+		<!-- javax -->
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.javax-inject</artifactId>
+			<version>1_2</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -132,18 +168,6 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<version>${plugin.bundle.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-					<buildDirectory>${bundle.dir}</buildDirectory>
-					<instructions>
-					</instructions>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

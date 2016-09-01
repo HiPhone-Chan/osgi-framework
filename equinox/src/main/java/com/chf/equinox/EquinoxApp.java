@@ -5,17 +5,16 @@ import org.eclipse.osgi.framework.internal.core.FrameworkProperties;
 
 public class EquinoxApp {
 
+	public static boolean isNoShutdown = true;
+
 	public static void main(String[] args) {
 		if (args == null || args.length == 0) {
 			args = new String[] { "-console" };
 		}
 
 		try {
-			Object result = EclipseStarter.run(args, null);
-			if (result instanceof Integer && !Boolean
-					.valueOf(FrameworkProperties.getProperty(EclipseStarter.PROP_NOSHUTDOWN)).booleanValue()) {
-				System.exit(((Integer) result).intValue());
-			}
+			FrameworkProperties.setProperty(EclipseStarter.PROP_NOSHUTDOWN, String.valueOf(isNoShutdown));
+			EclipseStarter.run(args, null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

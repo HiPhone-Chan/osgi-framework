@@ -12,7 +12,6 @@ public class Activator implements BundleActivator {
 	@Override
 	public void start(BundleContext context) throws Exception {
 		System.out.println("Start service.");
-
 		taskDaoTracker = new TaskDaoTracker(context);
 		taskDaoTracker.open();
 	}

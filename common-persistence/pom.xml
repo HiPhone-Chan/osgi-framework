@@ -31,7 +31,7 @@
 					<instructions>
 						<!-- <Embed-Dependency>*;scope=compile;inline=true</Embed-Dependency> -->
 						<!-- <Import-Package>!javax.*</Import-Package> -->
-						<Bundle-Activator>com.chf.common.persistence.Activator</Bundle-Activator>
+						<Bundle-Activator>${base.package}.common.persistence.Activator</Bundle-Activator>
 					</instructions>
 				</configuration>
 			</plugin>
