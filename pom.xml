@@ -104,8 +104,8 @@
 		<module>osgi</module>
 		<module>common-core</module>
 		<module>common-persistence</module>
-		<module>ui-web</module>
 		<module>common-service</module>
+		<module>common-ui</module>
 		<module>felix</module>
 		<module>equinox</module>
 	</modules>

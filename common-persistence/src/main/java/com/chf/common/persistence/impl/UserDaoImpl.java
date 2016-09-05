@@ -1,11 +1,14 @@
 package com.chf.common.persistence.impl;
 
+import javax.inject.Named;
+
 import org.osgi.service.component.annotations.Component;
 
 import com.chf.common.core.domain.User;
 import com.chf.common.core.persistence.UserDao;
 
 @Component
+@Named
 public class UserDaoImpl extends MemDao<User, String> implements UserDao {
 
 	public UserDaoImpl() {

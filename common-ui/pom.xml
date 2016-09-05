@@ -6,7 +6,7 @@
 		<artifactId>osgiframework.example</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>ui-web</artifactId>
+	<artifactId>common-ui</artifactId>
 	<packaging>bundle</packaging>
 
 	<dependencies>
@@ -25,6 +25,19 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>${plugin.bundle.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<buildDirectory>${bundle.dir}</buildDirectory>
+					<Embed-Transitive>true</Embed-Transitive>
+					<instructions>
+						<Bundle-Activator>${base.package}.ui.Activator</Bundle-Activator>
+					</instructions>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>

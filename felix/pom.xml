@@ -22,7 +22,7 @@
 
 		<dependency>
 			<groupId>com.chf</groupId>
-			<artifactId>ui-web</artifactId>
+			<artifactId>common-ui</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
@@ -91,7 +91,7 @@
 			<version>3.0.0</version>
 		</dependency>
 
-		<!-- src Declarative Services -->
+		<!-- scr Declarative Services -->
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.scr</artifactId>
@@ -129,6 +129,13 @@
 			<artifactId>org.apache.aries.blueprint.core</artifactId>
 			<version>1.6.2</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.aries.blueprint</groupId>
+			<artifactId>org.apache.aries.blueprint.web</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
 
 		<!-- <dependency> <groupId>org.apache.aries.blueprint</groupId> <artifactId>org.apache.aries.blueprint.cm</artifactId> 
 			<version>1.0.8</version> </dependency> -->

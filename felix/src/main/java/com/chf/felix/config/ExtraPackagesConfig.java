@@ -1,11 +1,12 @@
 package com.chf.felix.config;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.Constants;
+
+import com.chf.common.core.util.StreamUtil;
 
 /**
  * if appear missing requirement ... osgi.wiring.package;, add the package here
@@ -15,19 +16,10 @@ import org.osgi.framework.Constants;
  */
 public class ExtraPackagesConfig extends ConfigChain {
 
-	public List<String> packageInfos;
-
-	public ExtraPackagesConfig() {
-		packageInfos = new ArrayList<>();
-		packageInfos.add("javax.servlet;javax.servlet.http;version=3.1.0");
-		packageInfos.add("org.osgi.service.log;version=1.3");
-		packageInfos.add("org.osgi.service.http.context;version=1.0");
-		packageInfos.add("javax.inject;version=1");
-		packageInfos.add("org.osgi.service.blueprint;version=1.0.0");
-	}
-
 	@Override
 	public void config(Map<String, Object> config, List<BundleActivator> activators) {
+		List<String> packageInfos = StreamUtil
+				.readLines(getClass().getClassLoader().getResourceAsStream("conf/extra-packages"));
 		StringBuilder sb = new StringBuilder();
 
 		for (String packageInfo : packageInfos) {

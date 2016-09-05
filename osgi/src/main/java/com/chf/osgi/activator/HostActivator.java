@@ -30,9 +30,6 @@ public class HostActivator implements BundleActivator {
 
 		logServiceTracker = new LogServiceTracker(context);
 		logServiceTracker.open();
-
-//		httpServiceTracker = new HttpServiceTracker(context);
-//		httpServiceTracker.open();
 	}
 
 	@Override

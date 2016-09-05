@@ -12,8 +12,7 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 
 @Component(service = Servlet.class, property = { HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN + "=/",
-		HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT + "=("
-				+ HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "=index)" })
+		SimpleServletContextHelper.CONTEXT_SELECT })
 public class IndexServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -7194555391669166867L;

@@ -3,6 +3,7 @@ package com.chf.felix.config;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.felix.http.jetty.internal.JettyConfig;
 import org.apache.felix.http.whiteboard.internal.WhiteboardActivator;
 import org.osgi.framework.BundleActivator;
 
@@ -13,8 +14,8 @@ public class HttpConfig extends ConfigChain {
 		activators.add(new org.apache.felix.http.jetty.internal.JettyActivator());
 		activators.add(new WhiteboardActivator());
 		activators.add(new org.apache.felix.http.bridge.internal.BridgeActivator());
-//		config.put("org.apache.felix.http.jettyEnabled", "true");
-//		config.put("org.apache.felix.http.whiteboardEnabled", "true");
+		
+		config.put(JettyConfig.HTTP_PORT, "9090");
 	}
 
 }
