@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.0.0 http://karaf.apache.org/xmlns/features/v1.0.0">
+
+	<feature name="karaf-example" version="${pom.version}">
+		<feature>pax-cdi</feature>
+		<feature>scr</feature>
+		<feature>karaf-service</feature>
+		<feature>karaf-ui</feature>
+	</feature>
+
+	<feature name="karaf-service" version="${pom.version}">
+		<feature>karaf-persistence</feature>
+		<bundle>mvn:com.chf/common-core/${pom.version}</bundle>
+		<bundle>mvn:com.chf/common-service/${pom.version}</bundle>
+	</feature>
+
+	<feature name="karaf-persistence" version="${pom.version}">
+		<bundle>mvn:com.chf/common-core/${pom.version}</bundle>
+		<bundle>mvn:com.chf/common-persistence/${pom.version}</bundle>
+	</feature>
+
+	<feature name="karaf-ui" version="${pom.version}">
+		<feature>http</feature>
+		<feature>http-whiteboard</feature>
+		<bundle>mvn:com.chf/common-core/${pom.version}</bundle>
+		<bundle>mvn:com.chf/common-ui/${pom.version}</bundle>
+	</feature>
+
+</features>

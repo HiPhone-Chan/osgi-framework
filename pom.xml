@@ -108,5 +108,6 @@
 		<module>common-ui</module>
 		<module>felix</module>
 		<module>equinox</module>
+		<module>karaf</module>
 	</modules>
 </project>

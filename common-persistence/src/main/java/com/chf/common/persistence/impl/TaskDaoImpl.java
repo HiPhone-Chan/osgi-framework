@@ -1,11 +1,17 @@
 package com.chf.common.persistence.impl;
 
-import org.osgi.service.component.annotations.Component;
+import javax.inject.Named;
+
+import org.ops4j.pax.cdi.api.OsgiServiceProvider;
+import org.ops4j.pax.cdi.api.Properties;
+import org.ops4j.pax.cdi.api.Property;
 
 import com.chf.common.core.domain.Task;
 import com.chf.common.core.persistence.TaskDao;
 
-@Component
+@OsgiServiceProvider(classes = { TaskDao.class })
+@Properties({ @Property(name = "service.exported.interfaces", value = "*") })
+@Named
 public class TaskDaoImpl extends MemDao<Task, String> implements TaskDao {
 
 	public TaskDaoImpl() {

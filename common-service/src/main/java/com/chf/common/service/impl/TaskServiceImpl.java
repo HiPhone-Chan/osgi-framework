@@ -2,23 +2,26 @@ package com.chf.common.service.impl;
 
 import java.util.Collection;
 
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.ServiceReference;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Deactivate;
-import org.osgi.util.tracker.ServiceTracker;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import org.ops4j.pax.cdi.api.OsgiService;
+import org.ops4j.pax.cdi.api.OsgiServiceProvider;
+import org.ops4j.pax.cdi.api.Properties;
+import org.ops4j.pax.cdi.api.Property;
 
 import com.chf.common.core.domain.Task;
 import com.chf.common.core.persistence.TaskDao;
 import com.chf.common.core.service.TaskService;
 
-@Component
+@OsgiServiceProvider(classes = { TaskService.class })
+@Properties({ @Property(name = "service.exported.interfaces", value = "*") })
+@Named
 public class TaskServiceImpl implements TaskService {
 
+	@Inject
+	@OsgiService
 	private TaskDao taskDao;
-
-	private TaskDaoTracker taskDaoTracker;
 
 	@Override
 	public Task getTask(String id) {
@@ -43,31 +46,5 @@ public class TaskServiceImpl implements TaskService {
 	@Override
 	public void deleteTask(String id) {
 		taskDao.delete(id);
-	}
-
-	@Activate
-	public void activate(BundleContext context) {
-		taskDaoTracker = new TaskDaoTracker(context);
-		taskDaoTracker.open();
-	}
-
-	@Deactivate
-	public void deactivate() {
-		taskDaoTracker.close();
-	}
-
-	class TaskDaoTracker extends ServiceTracker<TaskDao, TaskDao> {
-
-		public TaskDaoTracker(BundleContext context) {
-			super(context, TaskDao.class, null);
-		}
-
-		@Override
-		public TaskDao addingService(ServiceReference<TaskDao> reference) {
-			taskDao = super.addingService(reference);
-			System.out.println(taskDao.getAll());
-			return taskDao;
-		}
-
 	}
 }
