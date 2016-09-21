@@ -6,15 +6,13 @@
 		<artifactId>osgiframework.example</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>karaf</artifactId>
+	<artifactId>osgi-common</artifactId>
 	<packaging>pom</packaging>
 
-	<build>
-		<plugins>
-		</plugins>
-	</build>
-
 	<modules>
-		<module>karaf-features</module>
+		<module>common-core</module>
+		<module>common-persistence</module>
+		<module>common-service</module>
+		<module>common-ui</module>
 	</modules>
 </project>

@@ -12,20 +12,23 @@
 
 	<feature name="karaf-service" version="${pom.version}">
 		<feature>karaf-persistence</feature>
-		<bundle>mvn:com.chf/common-core/${pom.version}</bundle>
-		<bundle>mvn:com.chf/common-service/${pom.version}</bundle>
+		<bundle>mvn:com.chf.osgi/common-core/${pom.version}</bundle>
+		<bundle>mvn:com.chf.osgi/common-service/${pom.version}</bundle>
 	</feature>
 
 	<feature name="karaf-persistence" version="${pom.version}">
-		<bundle>mvn:com.chf/common-core/${pom.version}</bundle>
-		<bundle>mvn:com.chf/common-persistence/${pom.version}</bundle>
+		<bundle>mvn:com.chf.osgi/common-core/${pom.version}</bundle>
+		<bundle>mvn:com.chf.osgi/common-persistence/${pom.version}</bundle>
 	</feature>
 
 	<feature name="karaf-ui" version="${pom.version}">
 		<feature>http</feature>
 		<feature>http-whiteboard</feature>
-		<bundle>mvn:com.chf/common-core/${pom.version}</bundle>
-		<bundle>mvn:com.chf/common-ui/${pom.version}</bundle>
+		<feature>cxf-features-logging</feature>
+		<feature>cxf-jaxrs</feature>
+		<feature>cxf-commands</feature>
+		<bundle>mvn:com.chf.osgi/common-core/${pom.version}</bundle>
+		<bundle>mvn:com.chf.osgi/common-ui/${pom.version}</bundle>
 	</feature>
 
 </features>

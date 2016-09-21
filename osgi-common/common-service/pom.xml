@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.chf</groupId>
-		<artifactId>osgiframework.example</artifactId>
+		<groupId>com.chf.osgi</groupId>
+		<artifactId>osgi-common</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>common-service</artifactId>
@@ -11,7 +11,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.chf</groupId>
+			<groupId>com.chf.osgi</groupId>
 			<artifactId>common-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>

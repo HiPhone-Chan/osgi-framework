@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.chf</groupId>
+		<groupId>com.chf.osgi</groupId>
 		<artifactId>karaf</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
@@ -20,6 +20,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.1</version>
 				<executions>
 					<execution>
 						<id>filter</id>
@@ -30,9 +31,11 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.12</version>
 				<executions>
 					<execution>
 						<id>attach-artifacts</id>

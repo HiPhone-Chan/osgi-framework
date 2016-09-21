@@ -2,19 +2,44 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.chf</groupId>
-		<artifactId>osgiframework.example</artifactId>
+		<groupId>com.chf.osgi</groupId>
+		<artifactId>osgi-common</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>common-persistence</artifactId>
+	<artifactId>common-ui</artifactId>
 	<packaging>bundle</packaging>
+
+	<properties>
+		<cxf.version>3.1.7</cxf.version>
+	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.chf</groupId>
+			<groupId>com.chf.osgi</groupId>
 			<artifactId>common-core</artifactId>
 			<version>${project.version}</version>
-			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-features-logging</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-management</artifactId>
+			<version>${cxf.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -29,9 +54,7 @@
 					<buildDirectory>${bundle.dir}</buildDirectory>
 					<Embed-Transitive>true</Embed-Transitive>
 					<instructions>
-						<!-- <Embed-Dependency>*;scope=compile;inline=true</Embed-Dependency> -->
-						<!-- <Import-Package>!javax.*</Import-Package> -->
-						<Bundle-Activator>${base.package}.common.persistence.Activator</Bundle-Activator>
+						<Bundle-Activator>${base.package}.ui.Activator</Bundle-Activator>
 					</instructions>
 				</configuration>
 			</plugin>
