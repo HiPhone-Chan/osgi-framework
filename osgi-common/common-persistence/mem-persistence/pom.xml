@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.chf.osgi</groupId>
+		<artifactId>common-persistence</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>mem-persistence</artifactId>
+	<packaging>bundle</packaging>
+
+	<dependencies>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>${plugin.bundle.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<buildDirectory>${bundle.dir}</buildDirectory>
+					<Embed-Transitive>true</Embed-Transitive>
+					<instructions>
+						<!-- <Embed-Dependency>*;scope=compile;inline=true</Embed-Dependency> -->
+						<!-- <Import-Package>!javax.*</Import-Package> -->
+						<Bundle-Activator>${base.package}.common.persistence.Activator</Bundle-Activator>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

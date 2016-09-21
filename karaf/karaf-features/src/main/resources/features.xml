@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.0.0 http://karaf.apache.org/xmlns/features/v1.0.0">
+	xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0 http://karaf.apache.org/xmlns/features/v1.4.0">
 
 	<feature name="karaf-example" version="${pom.version}">
 		<feature>pax-cdi</feature>
@@ -18,7 +18,7 @@
 
 	<feature name="karaf-persistence" version="${pom.version}">
 		<bundle>mvn:com.chf.osgi/common-core/${pom.version}</bundle>
-		<bundle>mvn:com.chf.osgi/common-persistence/${pom.version}</bundle>
+		<bundle>mvn:com.chf.osgi/mem-persistence/${pom.version}</bundle>
 	</feature>
 
 	<feature name="karaf-ui" version="${pom.version}">
@@ -28,7 +28,7 @@
 		<feature>cxf-jaxrs</feature>
 		<feature>cxf-commands</feature>
 		<bundle>mvn:com.chf.osgi/common-core/${pom.version}</bundle>
-		<bundle>mvn:com.chf.osgi/common-ui/${pom.version}</bundle>
+		<bundle>mvn:com.chf.osgi/web-ui/${pom.version}</bundle>
 	</feature>
 
 </features>
